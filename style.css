@@ -1,14 +1,30 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: white;
     font-family: Arial, sans-serif;
-
+    min-width: 320px;
+    overflow-x: hidden;
+    color: #222;
 }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     display: flex;
@@ -17,17 +33,18 @@ nav {
     flex-direction: column;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 10;
+    width: 100%;
 }
 
 nav .top {
     width: 100%;
-    height: 70px;
+    min-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #2563eb;
-    padding: 10px 40px
+    padding: 10px 40px;
 }
 
 nav .top p {
@@ -41,7 +58,7 @@ nav .link {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    padding-top: 15px;
+    padding-top: 0;
 }
 
 nav .link a {
@@ -49,7 +66,6 @@ nav .link a {
     color: white;
     font-size: 16px;
     font-weight: 600;
-
 }
 
 nav .link button {
@@ -63,7 +79,6 @@ nav .link button a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    justify-items: center;
     background: white;
     color: #2563eb;
     font-size: 16px;
@@ -72,21 +87,40 @@ nav .link button a {
     border-radius: 15px;
 }
 
+nav .link .nav-signup {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    background: white;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
 .hero-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
     padding: 50px 40px;
-    margin: 2px 2px 0 2px;
+    margin: 2px 2px 0;
 }
 
 .hero-section .hero-text {
-    width: 100%;
+    flex: 1 1 50%;
+    min-width: 0;
 }
 
 .hero-section .hero-text h1 {
     margin-bottom: 20px;
     font-size: 50px;
+    line-height: 1.2;
 }
 
 .hero-section .hero-text p {
@@ -109,28 +143,52 @@ nav .link button a {
     color: white;
 }
 
-.hero-section .hero-img img {
-    width: 500px;
-    border-radius: 20px;
-    height: 500px;
+.hero-section .buttons a.btn1,
+.hero-section .buttons a.btn2 {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
 }
+
+.hero-section .hero-img {
+    flex: 1 1 45%;
+    min-width: 0;
+}
+
+.hero-section .hero-img img {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
 
 .about {
     padding: 50px 80px;
     align-items: center;
     margin-top: 2px;
-    width: 100%;   
+    width: 100%;
 }
 
 .about h4 {
-    margin-left: 450px;
     color: black;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .about h2 {
-    margin-left: 200px;
     color: black;
+    text-align: center;
 }
 
 .about .about-container {
@@ -138,6 +196,7 @@ nav .link button a {
     margin-top: 10px;
     align-items: center;
     justify-content: space-between;
+    gap: 40px;
     margin-bottom: 10px;
 }
 
@@ -145,6 +204,7 @@ nav .link button a {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    flex-shrink: 0;
 }
 
 .about .about-images img:first-child {
@@ -162,23 +222,24 @@ nav .link button a {
 }
 
 .about .about-text {
-    width: 65%;
+    width: auto;
+    flex: 1;
     text-align: left;
     margin-bottom: 50px;
-
+    min-width: 0;
 }
 
 .about .about-text p {
     margin-bottom: 30px;
     line-height: 1.8;
     font-size: 15px;
-
+    overflow-wrap: anywhere;
 }
 
 .about .about-text h3 {
     font-size: 25px;
     font-weight: 400;
-    color: rgb(0, 0, 0);
+    color: black;
 }
 
 .about .stats {
@@ -187,10 +248,13 @@ nav .link button a {
     justify-content: space-around;
     font-weight: bold;
     gap: 40px;
-    color: rgb(0, 0, 0);
-    margin-right: 90px;
-
+    color: black;
+    flex-wrap: wrap;
 }
+
+/* =========================
+   SERVICES SECTION
+========================= */
 
 .services {
     padding: 100px 100px;
@@ -203,14 +267,12 @@ nav .link button a {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 20px;
-    align-items: center;
 }
 
 .services h1 {
     font-size: 26px;
     margin-bottom: 30px;
     color: rgb(54, 48, 48);
-    align-items: center;
     margin-top: 10px;
 }
 
@@ -218,11 +280,13 @@ nav .link button a {
     display: flex;
     justify-content: center;
     gap: 30px;
-    height: 450px;
+    height: auto;
+    align-items: stretch;
 }
 
 .services .card {
-    width: 500px;
+    flex: 1 1 0;
+    min-width: 0;
     border-radius: 15px;
     overflow: hidden;
     padding-bottom: 20px;
@@ -232,7 +296,6 @@ nav .link button a {
     width: 100%;
     height: 200px;
     object-fit: cover;
-
 }
 
 .services .card-content {
@@ -243,13 +306,12 @@ nav .link button a {
 .services .card h2 {
     font-size: 20px;
     margin-top: 30px;
-
 }
 
 .services .card p {
     font-size: 14px;
     margin: 10px 0;
-
+    line-height: 1.6;
 }
 
 .services .card button {
@@ -276,10 +338,13 @@ nav .link button a {
     background: white;
 }
 
+/* =========================
+   WHY CHOOSE US
+========================= */
+
 .why {
     padding: 50px 80px;
     text-align: center;
-
 }
 
 .why p {
@@ -295,26 +360,30 @@ nav .link button a {
 
 .why-container {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 40px;
     margin-top: 40px;
     justify-content: center;
+}
 
+.why-left {
+    flex: 0 1 380px;
+    min-width: 0;
 }
 
 .why-left img {
-    width: 380px;
+    width: 100%;
     border-radius: 15px;
     object-fit: cover;
     height: 520px;
-
 }
-
 
 .why-right {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+    flex: 1 1 600px;
+    min-width: 0;
 }
 
 .why-box {
@@ -323,15 +392,15 @@ nav .link button a {
     padding: 25px;
     border-radius: 15px;
     text-align: left;
-    width: 300px;
-    height: 250px;
+    width: 100%;
+    min-height: 230px;
+    height: auto;
 }
 
 .why-box h3 {
     font-size: 20px;
     margin-top: 30px;
 }
-
 
 .why-box p {
     font-size: 15px;
@@ -346,20 +415,16 @@ nav .link button a {
     display: flex;
 }
 
-
-
-
-
-
-
-
+/* =========================
+   BENEFITS AND HOW IT WORKS
+========================= */
 
 .main-container {
     width: 100%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px 60px;
-    box-sizing: border-box;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -378,12 +443,24 @@ nav .link button a {
     margin-top: 0;
 }
 
+.section-how-it-works h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.section-benefits h2,
+.section-how-it-works h2,
+.section-faq h2 {
+    text-align: center;
+    width: 100%;
+}
 
 .icon-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 50px;
+    gap: 20px;
 }
 
 .icon-item {
@@ -405,6 +482,7 @@ nav .link button a {
     align-items: center;
     color: #2563eb;
     font-size: 30px;
+    flex-shrink: 0;
 }
 
 .icon-text {
@@ -412,29 +490,9 @@ nav .link button a {
     font-weight: 500;
 }
 
-.section-how-it-works h1 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-.section-benefits h2,
-.section-how-it-works h2,
-.section-faq h2 {
-    text-align: center;
-    width: 100%;
-}
-
-.icon-item.user .icon-circle {
-    border-color: #2563eb;
-}
-
-.icon-item.career .icon-circle {
-    border-color: #2563eb;
-}
-
-.icon-item.practice .icon-circle {
-    border-color: #2563eb;
-}
-
+.icon-item.user .icon-circle,
+.icon-item.career .icon-circle,
+.icon-item.practice .icon-circle,
 .icon-item.feedback .icon-circle {
     border-color: #2563eb;
 }
@@ -443,6 +501,7 @@ nav .link button a {
     display: flex;
     justify-content: space-around;
     margin: 60px 0;
+    gap: 20px;
 }
 
 .icon-item-works {
@@ -454,8 +513,9 @@ nav .link button a {
     justify-content: center;
 }
 
-.icon-item-works img{
+.icon-item-works img {
     width: 80px;
+    height: auto;
 }
 
 .icon-img-placeholder {
@@ -463,12 +523,15 @@ nav .link button a {
     height: 60px;
     margin-bottom: 10px;
     color: #2563eb;
-
 }
 
+/* =========================
+   FAQ SECTION
+========================= */
+
 .section-faq {
-    margin-bottom: 60px;
     margin: 50px 20px 0 30px;
+    margin-bottom: 60px;
 }
 
 .section-faq h1 {
@@ -491,13 +554,13 @@ nav .link button a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 }
 
 .faq-item.blue {
     background-color: #2563eb;
     padding: 10px;
     border-radius: 20px;
-
 }
 
 .faq-item.gray {
@@ -505,36 +568,40 @@ nav .link button a {
     color: #333;
     padding: 10px;
     border-radius: 20px;
-
 }
 
 .faq-question {
     font-size: 25px;
-    margin-right: 260px;
+    margin-right: 0;
 }
 
 .faq-answer {
     font-size: 20px;
     color: #ddd;
     margin-top: 5px;
+    line-height: 1.5;
 }
 
 .faq-icon {
     font-size: 20px;
     color: white;
+    flex-shrink: 0;
 }
 
 .faq-item.gray .faq-icon {
     color: #666;
 }
 
+/* =========================
+   CALL TO ACTION
+========================= */
 
 .cta-box {
     background-color: #2563eb;
     color: white;
     text-align: center;
     margin-top: 100px;
-    padding: 20px 20px;
+    padding: 20px;
     border-radius: 12px;
     justify-content: center;
     width: 100%;
@@ -576,11 +643,16 @@ nav .link button a {
     border: 2px solid white;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 .footer {
     border-top: 1px solid #ddd;
     padding-top: 40px;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }
 
 .footer-left {
@@ -592,27 +664,25 @@ nav .link button a {
     font-weight: 700;
     font-size: 25px;
     margin-bottom: 10px;
-    margin-right: 100px;
 }
 
 .footer-copyright {
     font-size: 13px;
     color: #777;
-    margin-left: 10px;
-
 }
 
 .footer-columns {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 65%;
     gap: 30px;
     line-height: 1.9;
+    flex-wrap: wrap;
 }
 
 .footer-column {
     width: 30%;
-
+    min-width: 110px;
 }
 
 .footer-column-title {
@@ -635,4 +705,556 @@ nav .link button a {
     text-decoration: none;
     color: #555;
     font-size: 14px;
+}
+
+/* =========================
+   TABLET RESPONSIVENESS
+========================= */
+
+@media (max-width: 1024px) {
+
+    .hero-section {
+        padding: 40px 28px;
+    }
+
+    .hero-section .hero-text h1 {
+        font-size: clamp(34px, 5vw, 46px);
+    }
+
+    .hero-section .hero-img img {
+        height: 400px;
+    }
+
+    .about {
+        padding: 45px 35px;
+    }
+
+    .about .about-images img:first-child,
+    .about .about-images img:last-child {
+        width: 280px;
+    }
+
+    .about .about-text br {
+        display: none;
+    }
+
+    .services {
+        padding: 70px 35px;
+    }
+
+    .services .service-cards {
+        gap: 18px;
+    }
+
+    .services .card h2 {
+        margin-top: 10px;
+    }
+
+    .why {
+        padding: 45px 35px;
+    }
+
+    .why-container {
+        gap: 22px;
+    }
+
+    .why-left {
+        flex-basis: 32%;
+    }
+
+    .why-right {
+        flex-basis: 60%;
+        gap: 14px;
+    }
+
+    .why-box {
+        padding: 20px;
+    }
+
+    .main-container {
+        padding: 30px 35px;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+
+    nav .top {
+        height: auto;
+        min-height: 64px;
+        padding: 15px 16px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav .top p {
+        font-size: 20px;
+    }
+
+    nav .link {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 14px;
+        justify-content: center;
+    }
+
+    nav .link a {
+        font-size: 13px;
+    }
+
+    nav .link button a {
+        width: auto;
+        min-width: 75px;
+        height: 36px;
+        padding: 0 12px;
+    }
+
+    nav .link .nav-signup {
+        width: auto;
+        min-width: 75px;
+        height: 36px;
+        padding: 0 12px;
+    }
+
+    /* HERO */
+
+    .hero-section {
+        flex-direction: column;
+        padding: 38px 18px;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .hero-section .hero-text {
+        width: 100%;
+    }
+
+    .hero-section .hero-text h1 {
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.2;
+    }
+
+    .hero-section .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-section .hero-text p br {
+        display: none;
+    }
+
+    .hero-section .buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-section .buttons button {
+        margin: 0;
+    }
+
+    .hero-section .hero-img {
+        width: 100%;
+    }
+
+    .hero-section .hero-img img {
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        max-height: 380px;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    /* ABOUT */
+
+    .about {
+        padding: 38px 18px;
+    }
+
+    .about h4 {
+        margin-bottom: 12px;
+    }
+
+    .about h2 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .about .about-container {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    .about .about-images {
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .about .about-images img:first-child,
+    .about .about-images img:last-child {
+        width: calc(50% - 6px);
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .about .about-text {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .about .about-text p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .about .about-text p br {
+        display: none;
+    }
+
+    .about .about-text h3 {
+        font-size: 21px;
+        margin-bottom: 6px;
+    }
+
+    .about .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 25px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* SERVICES */
+
+    .services {
+        padding: 45px 18px;
+    }
+
+    .services .small-title {
+        font-size: 17px;
+    }
+
+    .services h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .services .service-cards {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+
+    .services .card {
+        width: 100%;
+        flex: none;
+    }
+
+    .services .card img {
+        height: 210px;
+    }
+
+    .services .card-content {
+        padding: 18px;
+    }
+
+    .services .card h2 {
+        margin-top: 5px;
+    }
+
+    .services .card p br {
+        display: none;
+    }
+
+    /* WHY CHOOSE US */
+
+    .why {
+        padding: 40px 18px;
+    }
+
+    .why h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .why p {
+        font-size: 16px;
+    }
+
+    .why-container {
+        flex-direction: column;
+        gap: 22px;
+        margin-top: 25px;
+    }
+
+    .why-left {
+        flex: none;
+        width: 100%;
+    }
+
+    .why-left img {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .why-right {
+        width: 100%;
+        flex: none;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .why-box {
+        min-height: 190px;
+        padding: 16px;
+    }
+
+    .why-box h3 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    .why-box p {
+        font-size: 13px;
+    }
+
+    .why-box p br {
+        display: none;
+    }
+
+    /* BENEFITS */
+
+    .main-container {
+        padding: 35px 18px;
+    }
+
+    .section-benefits h2,
+    .section-how-it-works h2,
+    .section-faq h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .icon-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .icon-item {
+        width: 100%;
+    }
+
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .icon-row-works {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+        margin: 35px 0;
+    }
+
+    .icon-item-works {
+        width: 100%;
+    }
+
+    .icon-item-works img {
+        width: 65px;
+    }
+
+    .icon-text {
+        font-size: 13px;
+    }
+
+    /* FAQ */
+
+    .section-faq {
+        margin: 40px 0 0;
+        width: 100%;
+    }
+
+    .section-faq h2 {
+        margin-bottom: 22px;
+    }
+
+    .faq-item,
+    .faq-item.blue,
+    .faq-item.gray {
+        padding: 15px;
+        border-radius: 12px;
+        gap: 12px;
+    }
+
+    .faq-question {
+        font-size: 17px;
+        line-height: 1.4;
+        margin-right: 0;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .faq-icon {
+        flex: 0 0 auto;
+    }
+
+    /* CTA */
+
+    .cta-box {
+        margin-top: 45px;
+        padding: 25px 16px;
+    }
+
+    .cta-box h3 {
+        font-size: 20px;
+    }
+
+    .cta-box p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .cta-buttons {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .cta-button {
+        padding: 10px 18px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        flex-direction: column;
+        padding-top: 28px;
+        gap: 25px;
+        text-align: left;
+    }
+
+    .footer-left,
+    .footer-columns {
+        width: 100%;
+    }
+
+    .footer-logo,
+    .footer-copyright {
+        margin: 0;
+    }
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 14px;
+    }
+
+    .footer-column {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer-list a {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+
+    nav .link {
+        gap: 10px 13px;
+    }
+
+    nav .link a {
+        font-size: 13px;
+    }
+
+    .hero-section .hero-text h1 {
+        font-size: 29px;
+    }
+
+    .about .about-images img:first-child,
+    .about .about-images img:last-child {
+        height: 140px;
+    }
+
+    .why-right {
+        grid-template-columns: 1fr;
+    }
+
+    .why-box {
+        min-height: 0;
+    }
+
+    .icon-row-works {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .icon-item-works img {
+        width: 75px;
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-button {
+        padding: 10px 18px;
+    }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+
+@media (max-width: 350px) {
+
+    .hero-section .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .about .about-images img:first-child,
+    .about .about-images img:last-child {
+        height: 115px;
+    }
+
+    .why-right {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
